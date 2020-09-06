@@ -11,7 +11,7 @@ PLATFORM ?= stm32
 
 
 BUILD_DIR ?= $(TEMP)/$(PROJECT)
-SRC_DIRS ?= ./Src ./Drivers
+SRC_DIRS ?= ./Src ./Drivers ./startup
 
 SRCS := $(shell find $(SRC_DIRS) -name *.cpp -or -name *.c -or -name *.s | grep -vF '/!')
 OBJS := $(subst \,/,$(SRCS:%=$(BUILD_DIR)/%.o))
