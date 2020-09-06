@@ -19,7 +19,7 @@ typedef struct pid_values {
 	int16_t minI;
 } pid_values_t;
 
-pid_values_t currentPID;
+extern pid_values_t currentPID;
 
 void setupPIDFromStruct();
 void setupPID(double max, double min, double Kp, double Kd, double Ki, int16_t _minI, int16_t _maxI );

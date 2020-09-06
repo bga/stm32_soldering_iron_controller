@@ -8,6 +8,8 @@
 #include "pid.h"
 #include "tempsensors.h"
 
+pid_values_t currentPID;
+
 static double max, min, Kp, Kd, Ki, pre_error, integral, mset, mpv, maxI, minI;
 static double p, i, d, currentOutput;
 uint32_t lastTime;

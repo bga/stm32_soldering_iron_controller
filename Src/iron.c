@@ -12,6 +12,9 @@
 #include "settings.h"
 #include "buzzer.h"
 
+ironSleep_t currentSleepSettings;
+ironBoost_t currentBoostSettings;
+
 static iron_mode_t currentMode = mode_standby;
 static uint32_t currentModeTimer = 0;
 static uint16_t currentSetTemperature = 300;

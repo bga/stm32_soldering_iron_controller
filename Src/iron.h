@@ -35,8 +35,8 @@ typedef struct tipData {
 	pid_values_t PID;
 } tipData;
 
-ironSleep_t currentSleepSettings;
-ironBoost_t currentBoostSettings;
+extern ironSleep_t currentSleepSettings;
+extern ironBoost_t currentBoostSettings;
 
 void setCurrentMode(iron_mode_t mode);
 void setSetTemperature(uint16_t temperature);

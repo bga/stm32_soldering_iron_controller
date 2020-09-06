@@ -7,6 +7,9 @@
 
 #include "settings.h"
 #include <string.h>
+
+struct systemSettings systemSettings;
+
 #define FLASH_ADDR (0x8000000|64512)/*Flash start OR'ed with the maximum amount of flash - 256 bytes*/
 //#define JBC
 void saveSettings() {
