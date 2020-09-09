@@ -44,7 +44,7 @@ CPPFLAGS += -MMD -MP
 CPPFLAGS += -mcpu=cortex-m3
 CPPFLAGS += -mthumb
 CPPFLAGS += -g
-CPPFLAGS += -O0
+CPPFLAGS += -Os
 CPPFLAGS += -fno-common
 
 # LSCRIPT = ./ld/stm32.ld
