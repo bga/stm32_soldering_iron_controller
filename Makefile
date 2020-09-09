@@ -78,6 +78,12 @@ $(BUILD_DIR)/%.cpp.o: %.cpp
 	$(MKDIR_P) $(dir $@)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
+size:
+	@echo
+	@echo == Progrom Size ==
+	@echo
+	@$(OS) $(TARGET_EXEC)
+
 .PHONY: clean
 
 clean:
