@@ -47,16 +47,19 @@ CPPFLAGS += -g
 CPPFLAGS += -O0
 CPPFLAGS += -fno-common
 
-LSCRIPT = ./ld/stm32.ld
+# LSCRIPT = ./ld/stm32.ld
+LSCRIPT = ./STM32F103C8Tx_FLASH.ld
 LFLAGS += -T$(LSCRIPT)
-# LFLAGS += -specs=nosys.specs -specs=nano.specs
+LFLAGS += -specs=nosys.specs -specs=nano.specs
 
 # LDFLAGS += -L../../lib/$(PLATFORM)/$(ARCH) -L../../../../!cpp/lib/$(PLATFORM)/$(ARCH)
+# LDFLAGS += -L/d/temp_/gcc-arm/arm-none-eabi/lib/thumb -lc -lm
+LDFLAGS += -lc -lm
 
 # all: app
 
 $(TARGET_EXEC): $(OBJS)
-	$(CC) $(OBJS) -o "$@" $(LDFLAGS)
+	$(CC) $(OBJS) -o "$@" $(LDFLAGS) $(LFLAGS)
 	$(OD) -h -S "$@"  > $(BUILD_DIR)/"$@".lst
 
 
@@ -74,7 +77,6 @@ $(BUILD_DIR)/%.c.o: %.c
 $(BUILD_DIR)/%.cpp.o: %.cpp
 	$(MKDIR_P) $(dir $@)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
-
 
 .PHONY: clean
 
