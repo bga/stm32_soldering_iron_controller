@@ -56,6 +56,8 @@ LFLAGS += -specs=nosys.specs -specs=nano.specs
 # LDFLAGS += -L/d/temp_/gcc-arm/arm-none-eabi/lib/thumb -lc -lm
 LDFLAGS += -lc -lm
 
+LDFLAGS += -Xlinker -Map=$(BUILD_DIR)/$(PROJECT).map 
+
 # all: app
 
 $(TARGET_EXEC): $(OBJS)
