@@ -8,6 +8,7 @@
 #include "calibration_screen.h"
 #include "../../../Src/iron.h"
 #include "../../../Src/pid.h"
+#include "../../../Src/utils.h"
 #include "../../generalIO/adc_global.h"
 #include "../../generalIO/tempsensors.h"
 #include "../../graphics/gui/oled.h"
@@ -48,7 +49,8 @@ static void setCalState(state_t s) {
 	if(current_state != cal_end) {
 		setSetTemperature(state_temps[(int)s]);
 		setCurrentMode(mode_set);
-		sprintf(waitStr, "Setting temp.to %dC", state_temps[(int)s]);
+		bga_strcat_retEnd(bga_sitoa(bga_strcat_retEnd(waitStr, "Setting temp to "), state_temps[(int)s]), "C");
+		// sprintf(waitStr, "Setting temp.to %dC", state_temps[(int)s]);
 		measuredTemp = state_temps[(int)s];
 	}
 	else {

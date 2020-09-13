@@ -5,6 +5,7 @@
  *      Author: jose
  */
 
+#include "../../../Src/utils.h"
 #include "widgets.h"
 #include "screen.h"
 
@@ -153,7 +154,8 @@ void default_widgetUpdate(widget_t *widget) {
 		switch (dis->type) {
 			case field_uinteger16:
 				val_ui16 = *((uint16_t*)(data));
-				sprintf(widget->displayString,"%d", val_ui16);
+				bga_sitoa(widget->displayString, val_ui16);
+				// sprintf(widget->displayString,"%d", val_ui16);
 				if(dis->number_of_dec) {
 					insertDot(widget->displayString, dis->number_of_dec);
 				}
